@@ -1,0 +1,13 @@
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+.title {
+  font-size: 50px;
+  font-weight: bold;
+  color: red;
+}
+.message {
+  font-size: 30px;
+  color: #333;
+}

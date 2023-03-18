@@ -1,0 +1,42 @@
+<body>
+  <div class="search">
+    <form #form="ngForm" (submit)="onSearch()">
+      <div class="search-bar">
+        <input type="text" placeholder="Enter a City" name="city" [(ngModel)]="city">
+        <button type="submit" aria-label="search">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="container">
+
+    <div class="left">
+
+      <img src="./assets/night-sky.jpg" *ngIf="currentWeather && !isDaytime()">
+      <img src="./assets/day-sky.avif" *ngIf="currentWeather && isDaytime()">
+      <img src="./assets/night-rain.jpg"
+        *ngIf="currentWeather && !isDaytime() && summary=='Rain' || summary=='Thunderstorm' ">
+      <img src="./assets/day-rain.avif"
+        *ngIf="currentWeather && isDaytime() && summary=='Rain' || summary=='Thunderstorm'">
+
+      <div class="data">
+        <div class="place">{{newCity.charAt(0).toUpperCase() + newCity.slice(1)}}</div>
+      </div>
+      <div class="temp">{{temperature}}&deg;C</div>
+    </div>
+
+    <div class="right">
+      <div class="info">
+        <div class="text">Weather Conditions: <span>{{summary}}</span></div>
+        <div class="text">Feels like: <span>{{feelsLike}}&deg;C</span></div>
+        <div class="text">Humidity: <span>{{humidity}}%</span></div>
+        <div class="text">Pressure: <span>{{pressure}} hPa</span></div>
+        <div class="text">Visibility: <span>{{visibility}} km</span></div>
+        <div class="text">Wind speed: <span>{{wind}} km/h</span></div>
+      </div>
+
+    </div>
+  </div>
+</body>
